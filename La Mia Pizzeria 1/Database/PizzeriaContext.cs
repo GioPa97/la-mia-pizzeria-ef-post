@@ -1,13 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NetCore_01.Models;
 
-namespace La_Mia_Pizzeria_1.Database
+namespace NetCore_01.Database
 {
     public class PizzeriaContext : DbContext
     {
         public DbSet<Pizza> Pizzas { get; set; }
-    }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        OptionsBuilder.UseSqlServer("Data Source=localhost;Database=PizzeraDb;" + "Integrated Security=True;TrustServerCertificate=True");
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Data Source=localhost;Database=MiaPizzeria01;" +
+            "Integrated Security=True;TrustServerCertificate=True");
+        }
     }
 }

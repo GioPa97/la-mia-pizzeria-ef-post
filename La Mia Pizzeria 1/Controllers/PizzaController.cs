@@ -1,37 +1,85 @@
-﻿using La_Mia_Pizzeria_1.Models;
-using La_Mia_Pizzeria_1.Models.Utils;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using NetCore_01.Database;
+using NetCore_01.Models;
 
-namespace La_Mia_Pizzeria_1.Controllers
+namespace NetCore_01.Controllers
 {
     public class PizzaController : Controller
     {
 
+
         public IActionResult Index()
         {
-            List<Models.Pizza> listaDellePizza = PizzaData.GetPizzas();
+            using (PizzeriaContext db = new PizzeriaContext())
+            {
+                List<Pizza> listaDellePizza = db.Pizza.ToList<Pizza>();
+                return View("Index", listaDellePizza);
+            }
 
-            return View("Index", listaDellePizza);
         }
 
         public IActionResult Details(int id)
         {
-            List<Models.Pizza> listaDellePizza = PizzaData.GetPizzas();
 
-            foreach (Models.Pizza pizza in listaDellePizza)
+            /*
+            bool FunzioneDiRicercaPostById(Post post)
             {
-                if (pizza.Id == id)
+                return post.Id == id;
+            }
+            */
+
+            using (PizzeriaContext db = new PizzeriaContext())
+            {
+                // LINQ: syntax methos
+                Pizza pizzaTrovato = db.Pizza
+                    .Where(SingolaPizzaNelDb => SingolaPizzaNelDb.Id == id)
+                    .FirstOrDefault();
+
+                // LINQ: query syntax
+                /* Post postTrovato =
+                     (from p in db.Posts
+                      where p.Id == id
+                      select p).FirstOrDefault<Post>();*/
+
+                // SQL QUERY
+                /* Post postTrovato =
+                     db.Posts.FromSql($"SELECT * FROM Posts WHERE Id = {id}")
+                     .FirstOrDefault<Post>(); */
+
+                if (pizzaTrovato != null)
                 {
-                    return base.View(pizza);
+                    return View(pizzaTrovato);
                 }
+
+                return NotFound("la pizza con l'id cercato non esiste!");
+
             }
 
-            return NotFound("la pizza con l'id cercato non esiste!");
         }
 
-        public IActionResult Esempio(string nome, string cognome, int eta)
+        [HttpGet]
+        public IActionResult Create()
         {
-            return Ok("Hai inserito parametro nome: " + nome + " parametro cognome: " + cognome + " parametro eta: " + eta);
+            return View("Create");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Pizza formData)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Create", formData);
+            }
+
+            using (PizzeriaContext db = new PizzeriaContext())
+            {
+                db.Pizza.Add(formData);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
