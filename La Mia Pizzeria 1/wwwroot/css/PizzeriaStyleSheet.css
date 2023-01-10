@@ -1,0 +1,16 @@
+﻿.footer-container {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 0px;
+}
+
+.footer a {
+    color: white;
+}
+
+.hr {
+    border: 1px solid gold;
+}
+

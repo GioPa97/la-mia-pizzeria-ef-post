@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>La_Mia_Pizzeria_1</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\img\PizzaBufalina.jpg" />
+    <None Include="wwwroot\css\img\PizzaDiavola.jpg" />
+    <None Include="wwwroot\css\img\PizzaMargherita.jpg" />
+    <None Include="wwwroot\css\img\PizzaMarinara.jpg" />
+    <None Include="wwwroot\css\img\PizzaProsciuttoEFunghi.jpg" />
+    <None Include="wwwroot\css\img\PizzaStraciatellaESpeck.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.1" />
+  </ItemGroup>
+
+</Project>
