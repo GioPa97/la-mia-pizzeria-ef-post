@@ -1,4 +1,4 @@
-namespace La_Mia_Pizzeria_1.Models
+namespace NetCore_01.Models
 {
     public class ErrorViewModel
     {
