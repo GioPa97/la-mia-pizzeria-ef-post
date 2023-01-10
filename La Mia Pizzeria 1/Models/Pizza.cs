@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using La_Mia_Pizzeria_1.Controllers;
+using La_Mia_Pizzeria_1.Database;
 namespace La_Mia_Pizzeria_1.Models
 {
 

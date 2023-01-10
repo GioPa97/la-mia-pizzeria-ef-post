@@ -22,30 +22,30 @@ namespace La_Mia_Pizzeria_1.Controllers
         public IActionResult Details(int id)
         {
 
-            /*
-            bool FunzioneDiRicercaPostById(Post post)
+            
+            bool FunzioneDiRicercaPostById(Pizza pizza)
             {
-                return post.Id == id;
+                return pizza.Id == id;
             }
-            */
+            
 
             using (PizzeriaContext db = new PizzeriaContext())
             {
-                // LINQ: syntax methos
+             /*   // LINQ: syntax methos
                 Pizza pizzaTrovato = db.Pizzas
                     .Where(SingolaPizzaNelDb => SingolaPizzaNelDb.Id == id)
-                    .FirstOrDefault();
+                    .FirstOrDefault(); */
 
                 // LINQ: query syntax
-                /* Post postTrovato =
-                     (from p in db.Posts
+                 Pizza pizzaTrovato =
+                     (from p in db.Pizzas
                       where p.Id == id
-                      select p).FirstOrDefault<Post>();*/
+                      select p).FirstOrDefault<Pizza>();
 
-                // SQL QUERY
-                /* Post postTrovato =
-                     db.Posts.FromSql($"SELECT * FROM Posts WHERE Id = {id}")
-                     .FirstOrDefault<Post>(); */
+               /* // SQL QUERY
+                 Pizza pizzaTrovato =
+                     db.Pizzas.FromSql($"SELECT * FROM Posts WHERE Id = {id}")
+                     .FirstOrDefault<Pizza>(); */
 
                 if (pizzaTrovato != null)
                 {
