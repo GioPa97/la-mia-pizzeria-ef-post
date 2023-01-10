@@ -8,19 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\css\img\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\css\img\PizzaBufalina.jpg" />
-    <None Include="wwwroot\css\img\PizzaDiavola.jpg" />
-    <None Include="wwwroot\css\img\PizzaMargherita.jpg" />
-    <None Include="wwwroot\css\img\PizzaMarinara.jpg" />
-    <None Include="wwwroot\css\img\PizzaProsciuttoEFunghi.jpg" />
-    <None Include="wwwroot\css\img\PizzaStraciatellaESpeck.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
