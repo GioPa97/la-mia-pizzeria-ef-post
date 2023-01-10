@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
+using La_Mia_Pizzeria_1.Database;
 
-
-namespace NetCore_01.Models
+namespace La_Mia_Pizzeria_1.Models
 {
 
     public class Pizza

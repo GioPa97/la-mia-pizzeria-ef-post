@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace NetCore_01.Controllers
+namespace La_Mia_Pizzeria_1.Controllers
 {
     public class HomeController : Controller
     {

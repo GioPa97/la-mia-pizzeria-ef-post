@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NetCore_01.Models;
+﻿using La_Mia_Pizzeria_1.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace NetCore_01.Database
+namespace La_Mia_Pizzeria_1.Database
 {
     public class PizzeriaContext : DbContext
     {
