@@ -3,12 +3,7 @@
 -->
 @model List<Pizza>
 
-@if (Model.Count == 0)
-{
-    <h3>Non ci sono Pizze da Visualizzare!</h3>
-}
-else
-{
+
 
 
     <div class="container">
@@ -19,7 +14,7 @@ else
                 </div>
 
                 <a class="btn btn-primary"
-               href="@Url.Action("Create", "Post")">
+               href="@Url.Action("Create", "Pizza")">
                     Nuovo articolo
                 </a>
 
@@ -50,18 +45,7 @@ else
                         }
 
 
-                        
-                        @for(int i = 0; i < Model.Count; i++)
-                        {
-                            <tr>
-                                <td>@@Model[i].Id</td>
-
-                                <td class="image"><img class="post-list-image" src="@@Model[i].Image"></td>
-                                <td class="title">@@Model[i].Title</td>
-                                <td class="description">@@Model[i].Description</td>
-                            </tr>
-
-                        }
+                      
                         
 
                     </tbody>
@@ -69,13 +53,12 @@ else
             </div>
         </div>
     </div>
-}
 
-@section OtherSection {
+
 
     <footer>
         <div class="container">
-            <p>Footer</p>
+            
         </div>
     </footer>
-}
+
