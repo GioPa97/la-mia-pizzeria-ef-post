@@ -15,8 +15,10 @@ namespace La_Mia_Pizzeria_1.Models
         [Column(TypeName = "text")]
         public string Description { get; set; }
 
-        [Column(TypeName = "varchar(300)")]
+        [Column(TypeName = "varchar(500)")]
         public string Image { get; set; }
+
+        
 
 
         public Pizza()
