@@ -15,7 +15,7 @@ namespace La_Mia_Pizzeria_1.Controllers
         {
             using (PizzeriaContext db = new PizzeriaContext())
             {
-                List<Pizza> listaDellePizza = db.Pizzas.ToList<Pizza>();
+                List<Pizza> listaDellePizza = db.Pizzas.OrderBy(title=>title.Title).ToList<Pizza>();
                 
 ;                return View("Index", listaDellePizza);
             }
