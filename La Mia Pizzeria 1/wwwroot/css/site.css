@@ -36,6 +36,7 @@ body {
 
 .post-list-table td.items-buttons .buttons {
     display: flex;
+    margin-bottom: 20px;
 }
 
 .items-buttons .buttons > * {
@@ -48,8 +49,8 @@ body {
     height: 100px;
 }
 .img-detail {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     display: flex;
 }
 

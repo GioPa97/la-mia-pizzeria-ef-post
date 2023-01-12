@@ -3,8 +3,12 @@
     text-align: center;
     padding: 5px;
     margin: 0px;
+    width: 100%;
+    position: absolute;
+
+
+    object-fit: contain;
     
-    object-fit:cover;
 }
 
 .footer a {
@@ -17,7 +21,13 @@
 
 .img-h {
     height: 200px;
+    width: 100%;
     background-position:top;
-    background-size:inherit;
-    object-fit:cover;
+    background-size:cover;
+    object-fit:contain;
+    background-repeat:no-repeat;
+}
+
+.btn-h{
+  
 }
