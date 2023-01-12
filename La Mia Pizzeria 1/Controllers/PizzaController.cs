@@ -86,14 +86,18 @@ namespace La_Mia_Pizzeria_1.Controllers
         {
             using (PizzeriaContext db = new PizzeriaContext())
             {
-                Pizza pizzaToUpdate = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
-                if (pizzaToUpdate == null)
+                Pizza postToUpdate = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+
+                if (postToUpdate == null)
                 {
-                    return NotFound("");
+                    return NotFound("Il post non è stato trovato");
                 }
-                return View("Update", pizzaToUpdate);
+
+                return View("Update", postToUpdate);
             }
+
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -106,16 +110,24 @@ namespace La_Mia_Pizzeria_1.Controllers
 
             using (PizzeriaContext db = new PizzeriaContext())
             {
-                Pizza pizzaToUpdate = db.Pizzas.Where(Pizza => Pizza.Id == formData.Id).FirstOrDefault();
-                if (pizzaToUpdate != null)
-                    pizzaToUpdate.Title = formData.Title;
-                pizzaToUpdate.Description = formData.Description;
-                pizzaToUpdate.Image = formData.Image;
-                db.Pizzas.Add(formData);
-                db.SaveChanges();
+                Pizza postToUpdate = db.Pizzas.Where(articolo => articolo.Id == formData.Id).FirstOrDefault();
+
+                if (postToUpdate != null)
+                {
+                    postToUpdate.Title = formData.Title;
+                    postToUpdate.Description = formData.Description;
+                    postToUpdate.Image = formData.Image;
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return NotFound("Il post che volevi modificare non è stato trovato!");
+                }
             }
 
-            return RedirectToAction("Index");
         }
 
 
