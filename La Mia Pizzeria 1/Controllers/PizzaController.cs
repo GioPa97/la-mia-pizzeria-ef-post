@@ -1,7 +1,6 @@
 ﻿using La_Mia_Pizzeria_1.Database;
 using La_Mia_Pizzeria_1.Models;
 using Microsoft.AspNetCore.Mvc;
-using La_Mia_Pizzeria_1.Controllers;
 
 
 
@@ -16,14 +15,14 @@ namespace La_Mia_Pizzeria_1.Controllers
         {
             using (PizzeriaContext db = new PizzeriaContext())
             {
-                List<Pizza> listaDellePizza = db.Pizzas.OrderBy(title=>title.Title).ToList<Pizza>();
-                
-;                return View("Index", listaDellePizza);
+                List<Pizza> listaDellePizza = db.Pizzas.OrderBy(title => title.Title).ToList<Pizza>();
+
+                ; return View("Index", listaDellePizza);
             }
 
         }
 
-        
+        [HttpGet]
         public IActionResult Details(int id)
         {
             bool FunzioneDiRicercaPostById(Pizza pizza)
