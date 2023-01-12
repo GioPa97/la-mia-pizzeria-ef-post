@@ -1,9 +1,10 @@
 ﻿.footer-container {
-    background-color: black;
     color: white;
     text-align: center;
     padding: 5px;
     margin: 0px;
+    
+    object-fit:cover;
 }
 
 .footer a {
@@ -14,3 +15,9 @@
     border: 1px solid gold;
 }
 
+.img-h {
+    height: 200px;
+    background-position:top;
+    background-size:inherit;
+    object-fit:cover;
+}
