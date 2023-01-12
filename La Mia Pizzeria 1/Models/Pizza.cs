@@ -12,16 +12,16 @@ namespace La_Mia_Pizzeria_1.Models
         public int Id { get; set; }
 
         [Column(TypeName = "varchar(100)")]
-        [StringLength(100, ErrorMessage ="Il testo non deve superare i 100 caratteri0")]
+        [StringLength(100, ErrorMessage ="Il testo non deve superare i 100 caratteri")]
         public string Title { get; set; }
 
         [Column(TypeName = "text")]
-        [StringLength(500, ErrorMessage = "Il testo non deve superare i 500 caratteri0")]
+        [StringLength(500, ErrorMessage = "Il testo non deve superare i 500 caratteri")]
 
         public string Description { get; set; }
 
         [Column(TypeName = "varchar(500)")]
-        [StringLength(500, ErrorMessage = "Il testo non deve superare i 500 caratteri0")]
+        [StringLength(500, ErrorMessage = "Il testo non deve superare i 500 caratteri")]
         [Url]
         
         public string Image { get; set; }

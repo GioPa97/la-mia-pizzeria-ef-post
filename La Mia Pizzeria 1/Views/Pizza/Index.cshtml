@@ -23,7 +23,7 @@
                 <table class="table post-list-table">
                     <thead>
                         <tr>
-                           
+                        <th>Id</th>
                             <th>Immagine</th>
                             <th>Titolo</th>
                             <th>Descrizione</th>
@@ -37,12 +37,16 @@
                             <tr>
                               
                                 <!-- questo è un esempio con url immagine esterna alla webapp attuale -->
+                            <td class="id">@pizza.Id</td>
                                 <td class="image"><img class="post-list-image" src="@pizza.Image"></td>
                                 <td class="title">@pizza.Title</td>
                                 <td class="description">@pizza.Description</td>
                                 <td>
-                                    <a class="btn btn-primary" href="@Url.Action("Details", "Pizza", new { id = pizza.Id } )" role="button">Dettagli</a>
+                                <a class="btn btn-primary" href="@Url.Action("Details", "Pizza", new { id = pizza.Id } )" role="button">Dettagli</a>
+                                <a class="btn btn-Info" href="@Url.Action("Update", "Pizza", new { id = pizza.Id } )" role="button">Update</a>
+
                                 </td>
+                                 
                             </tr>
                         }
 

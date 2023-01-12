@@ -47,3 +47,8 @@ body {
     width: 100px;
     height: 100px;
 }
+.img-detail {
+    width: 400px;
+    height: 400px;
+    display: flex;
+}

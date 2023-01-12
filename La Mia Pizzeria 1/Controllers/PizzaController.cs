@@ -81,5 +81,68 @@ namespace La_Mia_Pizzeria_1.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            using (PizzeriaContext db = new PizzeriaContext())
+            {
+                Pizza pizzaToUpdate = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+                if (pizzaToUpdate == null)
+                {
+                    return NotFound("");
+                }
+                return View("Update", pizzaToUpdate);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Pizza formData)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Update", formData);
+            }
+
+            using (PizzeriaContext db = new PizzeriaContext())
+            {
+                Pizza pizzaToUpdate = db.Pizzas.Where(Pizza => Pizza.Id == formData.Id).FirstOrDefault();
+                if (pizzaToUpdate != null)
+                    pizzaToUpdate.Title = formData.Title;
+                pizzaToUpdate.Description = formData.Description;
+                pizzaToUpdate.Image = formData.Image;
+                db.Pizzas.Add(formData);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            using (PizzeriaContext db = new PizzeriaContext())
+            {
+
+                Pizza pizzaToDelete = db.Pizzas.Where(Pizza => Pizza.Id == id).FirstOrDefault();
+                if (pizzaToDelete != null)
+                {
+                    db.Pizzas.Remove(pizzaToDelete);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+        }
+
+
+
+
+
+
+
+
+
     }
 }
