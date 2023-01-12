@@ -5,6 +5,7 @@ using La_Mia_Pizzeria_1.Controllers;
 
 
 
+
 namespace La_Mia_Pizzeria_1.Controllers
 {
     public class PizzaController : Controller
@@ -22,7 +23,7 @@ namespace La_Mia_Pizzeria_1.Controllers
 
         }
 
-        [HttpGet]
+        
         public IActionResult Details(int id)
         {
             bool FunzioneDiRicercaPostById(Pizza pizza)
