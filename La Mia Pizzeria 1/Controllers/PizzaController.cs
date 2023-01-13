@@ -117,6 +117,7 @@ namespace La_Mia_Pizzeria_1.Controllers
                     postToUpdate.Title = formData.Title;
                     postToUpdate.Description = formData.Description;
                     postToUpdate.Image = formData.Image;
+                    postToUpdate.Prezzo = formData.Prezzo;
 
                     db.SaveChanges();
 
